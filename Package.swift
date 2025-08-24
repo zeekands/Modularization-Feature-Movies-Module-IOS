@@ -15,14 +15,16 @@ let package = Package(
     .package(name: "SharedDomainPkg",
         url: "https://github.com/zeekands/Modularization-Domain-Module-IOS.git",
         branch: "main"),
-    .package(path: "../SharedUI"),     // Bergantung pada SharedUI
+    .package(name: "SharedUIPkg",
+        url: "https://github.com/zeekands/Modularization-UI-Module-IOS.git",
+        branch: "main"),
   ],
   targets: [
     .target(
       name: "FeatureMovies",
       dependencies: [
         .product(name: "SharedDomain", package: "SharedDomainPkg"),
-        .product(name: "SharedUI", package: "SharedUI"),
+        .product(name: "SharedUI", package: "SharedUIPkg"),
       ]),
     .testTarget(
       name: "FeatureMoviesTests",
